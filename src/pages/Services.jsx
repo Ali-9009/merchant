@@ -26,7 +26,7 @@ const services = [
 export default function Services() {
     return (
         <>
-            <section className="relative overflow-hidden py-24 lg:py-32">
+            <section className="relative overflow-hidden py-24 lg:py-34 px-6">
                 <div className="max-w-7xl mx-auto">
                     <div className="relative mx-auto max-w-5xl text-center">
                         <span className="inline-flex rounded-full border border-blue-200 bg-white px-5 py-2 text-sm font-semibold text-blue-600 shadow-sm">

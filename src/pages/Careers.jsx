@@ -58,16 +58,16 @@ const benefits = [
 export default function Careers() {
     return (
         <>
-            <section className="relative overflow-hidden py-24 lg:py-32">
+            <section className="relative overflow-hidden py-24 lg:py-32 px-6">
                 <div className="max-w-7xl mx-auto">
                     <div className="relative mx-auto max-w-6xl text-center">
-                        <span className="inline-flex rounded-full border border-blue-200 bg-white px-5 py-2 text-sm font-semibold text-blue-600 shadow-sm">
+                        <span className="inline-flex rounded-full border border-blue-200 bg-white px-5 py-2 text-sm font-semibold text-(--primary-color) shadow-sm">
                             Build With Us
                         </span>
 
                         <h1 className="mt-4 text-4xl font-semibold tracking-tight lg:text-6xl sm:text-5xl">
                             Unlock Your Potential: <br /> Become a Business
-                            <span className=" text-blue-600">
+                            <span className="text-(--primary-color)">
                                 {" "}Development Agent
                             </span>
                         </h1>
@@ -91,7 +91,7 @@ export default function Careers() {
                     <div className="grid items-start gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
                         {/* Intro */}
                         <div className="lg:sticky lg:top-28">
-                            <span className="inline-flex rounded-full border border-blue-200 bg-white px-5 py-2 text-sm font-semibold text-blue-600 shadow-sm">
+                            <span className="inline-flex rounded-full border border-blue-200 bg-white px-5 py-2 text-sm font-semibold text-(--primary-color) shadow-sm">
                                 Agent Support
                             </span>
 
@@ -107,7 +107,7 @@ export default function Careers() {
 
                             <div className="mt-8 rounded-2xl border border-blue-100 bg-blue-50/60 p-6">
                                 <div className="flex items-start gap-4">
-                                    <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-white text-blue-600 shadow-sm">
+                                    <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-white text-(--primary-color) shadow-sm">
                                         <BadgeDollarSign className="size-5" aria-hidden="true" />
                                     </span>
 
@@ -142,7 +142,7 @@ export default function Careers() {
                                         : ""
                                         }`}
                                 >
-                                    <div className="flex size-12 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition group-hover:bg-blue-600 group-hover:text-white">
+                                    <div className="flex size-12 items-center justify-center rounded-xl bg-blue-50 text-(--primary-color) transition group-hover:bg-(--primary-color) group-hover:text-white">
                                         <Icon className="size-5" aria-hidden="true" />
                                     </div>
 

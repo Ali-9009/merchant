@@ -1,7 +1,20 @@
-import { ArrowRight, ClipboardList, Code2, SearchCheck, MonitorSmartphone, Headset, ArrowUpRight, BadgeDollarSign, Handshake } from "lucide-react";
+import {
+  ArrowRight,
+  ClipboardList,
+  Code2,
+  SearchCheck,
+  MonitorSmartphone,
+  Headset,
+  ArrowUpRight,
+  BadgeDollarSign,
+  Handshake,
+} from "lucide-react";
+
 import PrimaryButton from "../components/PrimaryButton";
 import ContactUs from "./ContactUs";
 import FloatingCards from "../components/FloatingCards";
+import CustomerLove from "../components/CustomerLove";
+import Industries from "../components/Industries";
 
 const steps = [
   {
@@ -72,6 +85,8 @@ export default function Home() {
         </div>
       </section>
 
+      <CustomerLove />
+
       <section className="py-12 md:py-16 px-6">
         <div className="relative mx-auto max-w-7xl">
 
@@ -117,6 +132,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Industries />
 
       <section className="py-12 md:py-16 px-6">
         <div className="max-w-7xl mx-auto">

@@ -8,7 +8,7 @@ const cards = [
         floatY: -8,
         duration: 5,
         delay: 0,
-        
+
     },
     {
         src: "/assets/c-card-2.jpg",

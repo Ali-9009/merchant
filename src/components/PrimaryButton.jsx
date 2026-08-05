@@ -14,7 +14,7 @@ export default function PrimaryButton({
     rounded-lg bg-(--primary-color) px-6 py-3 
     text-sm font-semibold text-white
     transition-all duration-200
-    hover:bg-black
+    hover:bg-(--secondary-color)
     active:scale-[0.98]
     focus-visible:outline-none
     focus-visible:ring-2

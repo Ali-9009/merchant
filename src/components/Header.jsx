@@ -2,12 +2,15 @@ import { useEffect, useState } from "react";
 import {
   ChevronDown,
   ChevronRight,
+  CreditCard,
   Menu,
   X,
 } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 
 import PrimaryButton from "./PrimaryButton";
+
+import { products } from "../data/products";
 import { industries } from "../data/industries";
 
 const navItems = [
@@ -18,9 +21,14 @@ const navItems = [
     path: "/industries",
     dropdown: industries,
   },
-  { title: "Products", path: "/products" },
+  {
+    title: "Products",
+    path: "/products",
+    dropdown: products,
+    dropdownType: "products",
+  },
   { title: "Our Services", path: "/our-services" },
-  { title: "Careers", path: "/careers" },
+  // { title: "Careers", path: "/careers" },
   { title: "Blog", path: "/blog" },
   { title: "Contact", path: "/contact-us" },
 ];
@@ -31,6 +39,8 @@ export default function Header() {
   const [mobileIndustriesOpen, setMobileIndustriesOpen] =
     useState(false);
   const [desktopIndustriesOpen, setDesktopIndustriesOpen] = useState(false);
+  const [desktopDropdown, setDesktopDropdown] = useState(null);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,7 +69,8 @@ export default function Header() {
   const closeMenu = () => {
     setOpen(false);
     setMobileIndustriesOpen(false);
-    setDesktopIndustriesOpen(false);
+    setMobileProductsOpen(false);
+    setDesktopDropdown(null);
   };
 
   return (
@@ -86,7 +97,7 @@ export default function Header() {
                 alt="Company name"
                 width="160"
                 height="48"
-                className={`w-auto object-contain transition-all duration-300 ${sticky ? "h-7" : "h-9"
+                className={`w-auto object-contain transition-all duration-300 ${sticky ? "h-9" : "h-12"
                   }`}
               />
             </Link>
@@ -98,17 +109,22 @@ export default function Header() {
             >
               <ul className="flex items-center gap-8">
                 {navItems.map((item) => {
-                  if (item.dropdown) {
+                  const hasDropdown = Boolean(item.dropdown);
+                  const isDropdownOpen = desktopDropdown === item.dropdownType;
+
+                  if (hasDropdown) {
                     return (
                       <li
                         key={item.path}
                         className="relative"
-                        onMouseEnter={() => setDesktopIndustriesOpen(true)}
-                        onMouseLeave={() => setDesktopIndustriesOpen(false)}
+                        onMouseEnter={() =>
+                          setDesktopDropdown(item.dropdownType)
+                        }
+                        onMouseLeave={() => setDesktopDropdown(null)}
                       >
                         <NavLink
                           to={item.path}
-                          onClick={() => setDesktopIndustriesOpen(false)}
+                          onClick={() => setDesktopDropdown(null)}
                           className={({ isActive }) =>
                             `flex items-center gap-1 text-sm font-semibold transition-colors ${isActive
                               ? "text-(--primary-color)"
@@ -119,50 +135,71 @@ export default function Header() {
                           {item.title}
 
                           <ChevronDown
-                            className={`h-4 w-4 transition-transform duration-200 ${desktopIndustriesOpen ? "rotate-180" : ""
+                            className={`h-4 w-4 transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""
                               }`}
                             aria-hidden="true"
                           />
                         </NavLink>
 
-                        {/* Keeps hover active between link and dropdown */}
+                        {/* Hover bridge */}
                         <div className="absolute left-0 top-full h-4 w-full" />
 
                         <div
-                          className={`absolute left-0 top-[calc(100%+16px)] w-64 rounded-2xl border border-gray-200 bg-white p-2 shadow-xl transition-all duration-200 ${desktopIndustriesOpen
+                          className={`absolute left-0 top-[calc(100%+16px)] w-72 rounded-2xl border border-gray-200 bg-white p-2 shadow-xl transition-all duration-200 ${isDropdownOpen
                               ? "visible translate-y-0 opacity-100"
                               : "invisible translate-y-2 opacity-0"
                             }`}
                         >
                           <Link
-                            to="/industries"
-                            onClick={() => setDesktopIndustriesOpen(false)}
+                            to={item.path}
+                            onClick={() => setDesktopDropdown(null)}
                             className="mb-1 flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold text-(--secondary-color) transition-colors hover:bg-blue-50 hover:text-(--primary-color)"
                           >
-                            View All Industries
+                            View All {item.title}
+
                             <ChevronRight className="h-4 w-4" />
                           </Link>
 
                           <div className="my-1 border-t border-gray-100" />
 
-                          {item.dropdown.map((industry) => {
-                            const Icon = industry.icon;
+                          {item.dropdown.map((dropdownItem) => {
+                            const Icon =
+                              item.dropdownType === "products"
+                                ? CreditCard
+                                : dropdownItem.icon;
+
+                            const destination =
+                              item.dropdownType === "products"
+                                ? `/products?product=${dropdownItem.id}#product-tabs`
+                                : `/industries/${dropdownItem.slug}`;
 
                             return (
-                              <NavLink
-                                key={industry.slug}
-                                to={`/industries/${industry.slug}`}
-                                onClick={() => setDesktopIndustriesOpen(false)}
-                                className={({ isActive }) =>
-                                  `flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium transition-colors ${isActive
-                                    ? "bg-blue-50 text-(--primary-color)"
-                                    : "text-gray-700 hover:bg-blue-50 hover:text-(--primary-color)"
-                                  }`
+                              <Link
+                                key={
+                                  item.dropdownType === "products"
+                                    ? dropdownItem.id
+                                    : dropdownItem.slug
                                 }
+                                to={destination}
+                                onClick={() => setDesktopDropdown(null)}
+                                className="flex items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-gray-700 transition-colors hover:bg-blue-50 hover:text-(--primary-color)"
                               >
-                                <Icon className="h-4 w-4 shrink-0" />
-                                {industry.title}
-                              </NavLink>
+                                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-(--primary-color)">
+                                  <Icon className="h-4 w-4" />
+                                </span>
+
+                                <span className="min-w-0">
+                                  <span className="block">
+                                    {dropdownItem.name || dropdownItem.title}
+                                  </span>
+
+                                  {dropdownItem.label && (
+                                    <span className="mt-0.5 block truncate text-xs font-normal text-gray-500">
+                                      {dropdownItem.label}
+                                    </span>
+                                  )}
+                                </span>
+                              </Link>
                             );
                           })}
                         </div>
@@ -259,88 +296,138 @@ export default function Header() {
           aria-label="Mobile navigation"
         >
           <ul className="space-y-1">
-            <li>
-              <div className="flex items-center">
-                <NavLink
-                  to="/industries"
-                  onClick={closeMenu}
-                  className={({ isActive }) =>
-                    `flex flex-1 rounded-lg px-4 py-3 text-base font-semibold transition-colors ${isActive
-                      ? "bg-blue-50 text-(--primary-color)"
-                      : "text-gray-800 hover:bg-gray-100 hover:text-(--primary-color)"
-                    }`
-                  }
-                >
-                  Industries
-                </NavLink>
+            {navItems.map((item) => {
+              const hasDropdown = Boolean(item.dropdown);
 
-                <button
-                  type="button"
-                  onClick={() =>
-                    setMobileIndustriesOpen((current) => !current)
-                  }
-                  className="flex size-11 items-center justify-center rounded-lg text-gray-700 hover:bg-gray-100"
-                  aria-label="Toggle industries menu"
-                  aria-expanded={mobileIndustriesOpen}
-                >
-                  <ChevronDown
-                    className={`h-5 w-5 transition-transform duration-200 ${mobileIndustriesOpen ? "rotate-180" : ""
+              if (!hasDropdown) {
+                return (
+                  <li key={item.path}>
+                    <NavLink
+                      to={item.path}
+                      end={item.path === "/"}
+                      onClick={closeMenu}
+                      className={({ isActive }) =>
+                        `block rounded-lg px-4 py-3 text-base font-semibold transition-colors ${isActive
+                          ? "bg-blue-50 text-(--primary-color)"
+                          : "text-gray-800 hover:bg-gray-100 hover:text-(--primary-color)"
+                        }`
+                      }
+                    >
+                      {item.title}
+                    </NavLink>
+                  </li>
+                );
+              }
+
+              const isIndustries = item.dropdownType === "industries";
+              const isProducts = item.dropdownType === "products";
+
+              const isOpen = isIndustries
+                ? mobileIndustriesOpen
+                : mobileProductsOpen;
+
+              const toggleDropdown = () => {
+                if (isIndustries) {
+                  setMobileIndustriesOpen((current) => !current);
+                  setMobileProductsOpen(false);
+                }
+
+                if (isProducts) {
+                  setMobileProductsOpen((current) => !current);
+                  setMobileIndustriesOpen(false);
+                }
+              };
+
+              return (
+                <li key={item.path}>
+                  <div className="flex items-center">
+                    <NavLink
+                      to={item.path}
+                      onClick={closeMenu}
+                      className={({ isActive }) =>
+                        `flex flex-1 rounded-lg px-4 py-3 text-base font-semibold transition-colors ${isActive
+                          ? "bg-blue-50 text-(--primary-color)"
+                          : "text-gray-800 hover:bg-gray-100 hover:text-(--primary-color)"
+                        }`
+                      }
+                    >
+                      {item.title}
+                    </NavLink>
+
+                    <button
+                      type="button"
+                      onClick={toggleDropdown}
+                      className="flex size-11 shrink-0 items-center justify-center rounded-lg text-gray-700 transition-colors hover:bg-gray-100"
+                      aria-label={`Toggle ${item.title} menu`}
+                      aria-expanded={isOpen}
+                    >
+                      <ChevronDown
+                        className={`h-5 w-5 transition-transform duration-200 ${isOpen ? "rotate-180" : ""
+                          }`}
+                      />
+                    </button>
+                  </div>
+
+                  <div
+                    className={`grid transition-all duration-300 ${isOpen
+                        ? "grid-rows-[1fr] opacity-100"
+                        : "grid-rows-[0fr] opacity-0"
                       }`}
-                  />
-                </button>
-              </div>
+                  >
+                    <div className="overflow-hidden">
+                      <ul className="ml-4 mt-1 space-y-1 border-l border-gray-200 pl-3">
+                        {item.dropdown.map((dropdownItem) => {
+                          if (isIndustries) {
+                            const Icon = dropdownItem.icon;
 
-              <div
-                className={`grid transition-all duration-300 ${mobileIndustriesOpen
-                    ? "grid-rows-[1fr] opacity-100"
-                    : "grid-rows-[0fr] opacity-0"
-                  }`}
-              >
-                <div className="overflow-hidden">
-                  <ul className="ml-4 mt-1 space-y-1 border-l border-gray-200 pl-3">
-                    {industries.map((industry) => {
-                      const Icon = industry.icon;
+                            return (
+                              <li key={dropdownItem.slug}>
+                                <NavLink
+                                  to={`/industries/${dropdownItem.slug}`}
+                                  onClick={closeMenu}
+                                  className={({ isActive }) =>
+                                    `flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${isActive
+                                      ? "bg-blue-50 text-(--primary-color)"
+                                      : "text-gray-700 hover:bg-gray-100 hover:text-(--primary-color)"
+                                    }`
+                                  }
+                                >
+                                  <Icon className="h-4 w-4 shrink-0" />
 
-                      return (
-                        <li key={industry.slug}>
-                          <NavLink
-                            to={`/industries/${industry.slug}`}
-                            onClick={closeMenu}
-                            className={({ isActive }) =>
-                              `flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors ${isActive
-                                ? "bg-blue-50 text-(--primary-color)"
-                                : "text-gray-700 hover:bg-gray-100 hover:text-(--primary-color)"
-                              }`
-                            }
-                          >
-                            <Icon className="h-4 w-4" />
-                            {industry.title}
-                          </NavLink>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </div>
-              </div>
-            </li>
+                                  <span>{dropdownItem.title}</span>
+                                </NavLink>
+                              </li>
+                            );
+                          }
 
-            {navItems.map((item) => (
-              <li key={item.path}>
-                <NavLink
-                  to={item.path}
-                  end={item.path === "/"}
-                  onClick={closeMenu}
-                  className={({ isActive }) =>
-                    `block rounded-lg px-4 py-3 text-base font-semibold transition-colors ${isActive
-                      ? "bg-blue-50 text-(--primary-color)"
-                      : "text-gray-800 hover:bg-gray-100 hover:text-(--primary-color)"
-                    }`
-                  }
-                >
-                  {item.title}
-                </NavLink>
-              </li>
-            ))}
+                          return (
+                            <li key={dropdownItem.id}>
+                              <Link
+                                to={`/products?product=${dropdownItem.id}#product-tabs`}
+                                onClick={closeMenu}
+                                className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-(--primary-color)"
+                              >
+                                <CreditCard className="h-4 w-4 shrink-0" />
+
+                                <span className="min-w-0">
+                                  <span className="block">
+                                    {dropdownItem.name}
+                                  </span>
+
+                                  <span className="block truncate text-xs font-normal text-gray-500">
+                                    {dropdownItem.label}
+                                  </span>
+                                </span>
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
           </ul>
 
           <div className="mt-auto pt-8">

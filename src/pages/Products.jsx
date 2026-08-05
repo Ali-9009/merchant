@@ -1,4 +1,6 @@
-import { useState } from "react";
+
+import { useEffect, useRef, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import {
     ArrowRight,
     BadgeDollarSign,
@@ -102,19 +104,73 @@ export default function Products() {
 
 
 
+
 import { products } from "../data/products";
 
 function ProductTabs() {
+    const sectionRef = useRef(null);
+    const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+
+    const productFromUrl = searchParams.get("product");
+
+    const validProductFromUrl = products.some(
+        (product) => product.id === productFromUrl,
+    )
+        ? productFromUrl
+        : products[0].id;
+
     const [activeProductId, setActiveProductId] = useState(
-        products[0].id,
+        validProductFromUrl,
     );
 
-    const activeProduct = products.find(
-        (product) => product.id === activeProductId,
-    );
+    const activeProduct =
+        products.find(
+            (product) => product.id === activeProductId,
+        ) || products[0];
+
+    useEffect(() => {
+        if (!productFromUrl) return;
+
+        const productExists = products.some(
+            (product) => product.id === productFromUrl,
+        );
+
+        if (!productExists) return;
+
+        setActiveProductId(productFromUrl);
+
+        const scrollTimer = window.setTimeout(() => {
+            sectionRef.current?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        }, 100);
+
+        return () => window.clearTimeout(scrollTimer);
+    }, [productFromUrl]);
+
+    const selectProduct = (productId) => {
+        setActiveProductId(productId);
+
+        navigate(
+            {
+                pathname: "/products",
+                search: `?product=${productId}`,
+                hash: "#product-tabs",
+            },
+            {
+                replace: true,
+            },
+        );
+    };
 
     return (
-        <section className="py-12 md:py-16 px-6">
+        <section
+            ref={sectionRef}
+            id="product-tabs"
+            className="scroll-mt-24 px-6 py-12 md:py-16"
+        >
             <div className="mx-auto max-w-7xl">
                 <div className="mx-auto max-w-3xl text-center">
 
@@ -148,12 +204,13 @@ function ProductTabs() {
                                 role="tab"
                                 aria-selected={isActive}
                                 aria-controls={`product-panel-${product.id}`}
-                                onClick={() => setActiveProductId(product.id)}
-                                className={`rounded-xl font-sans border px-5 py-3 text-sm font-semibold transition-colors ${isActive
+                                onClick={() => selectProduct(product.id)}
+                                className={`rounded-xl border px-5 py-3 font-sans text-sm font-semibold transition-colors ${isActive
                                         ? "border-(--primary-color) bg-(--primary-color) text-white"
                                         : "border-gray-200 bg-white text-gray-700 hover:border-(--primary-color) hover:text-(--primary-color)"
                                     }`}
                             >
+                                    
                                 <span className="block">{product.name}</span>
                                 <span
                                     className={`mt-0.5 block text-xs  font-normal ${isActive ? "text-white/80" : "text-gray-500"

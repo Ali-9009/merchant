@@ -87,7 +87,7 @@ export default function AboutUs() {
                             </h2>
 
                             <p className="mt-8 text-lg leading-8 text-gray-600">
-                                FD Merchant Services is powered by First Data to deliver secure,
+                                Merchant Services is powered by First Data to deliver secure,
                                 reliable payment processing and modern point-of-sale solutions
                                 for businesses of every size, with specialized expertise in the
                                 hospitality industry.

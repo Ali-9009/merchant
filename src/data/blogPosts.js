@@ -9,7 +9,7 @@ export const blogPosts = [
         category: "Payments",
         date: "August 5, 2026",
         readingTime: "6 min read",
-        author: "FD Merchant Team",
+        author: "Merchant Team",
         featured: true,
         image: "/assets/blog-1.png",
         content: [
@@ -72,7 +72,7 @@ export const blogPosts = [
         category: "Technology",
         date: "July 28, 2026",
         readingTime: "5 min read",
-        author: "FD Merchant Team",
+        author: "Merchant Team",
         featured: false,
         image: "/assets/blog-2.png",
         content: [
@@ -119,7 +119,7 @@ export const blogPosts = [
         category: "Restaurants",
         date: "July 19, 2026",
         readingTime: "7 min read",
-        author: "FD Merchant Team",
+        author: "Merchant Team",
         featured: false,
         image: "/assets/blog-3.png",
         content: [
@@ -167,7 +167,7 @@ export const blogPosts = [
         category: "E-Commerce",
         date: "July 10, 2026",
         readingTime: "6 min read",
-        author: "FD Merchant Team",
+        author: "Merchant Team",
         featured: false,
         image: "/assets/blog-4.png",
         content: [
@@ -214,7 +214,7 @@ export const blogPosts = [
         category: "Hospitality",
         date: "June 30, 2026",
         readingTime: "5 min read",
-        author: "FD Merchant Team",
+        author: "Merchant Team",
         featured: false,
         image: "/assets/blog-5.png",
         content: [
@@ -253,7 +253,7 @@ export const blogPosts = [
         category: "Business Tips",
         date: "June 20, 2026",
         readingTime: "8 min read",
-        author: "FD Merchant Team",
+        author: "Merchant Team",
         featured: false,
         image: "/assets/blog-6.png",
         content: [

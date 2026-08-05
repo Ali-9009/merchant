@@ -77,8 +77,14 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex items-center justify-center">
-              <FloatingCards />
+            <div className="flex justify-center item-center">
+              <img
+                src="/assets/home.png"
+                alt=""
+                loading="eager"
+                fetchPriority="high"
+                className="rounded-2xl "
+              />
             </div>
 
           </div>

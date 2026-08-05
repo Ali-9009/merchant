@@ -18,230 +18,230 @@ import {
 
 export const products = [
 
-    {
-        id: "fd410",
-        name: "FD410",
-        label: "Wireless Terminal",
-        image: "/assets/product-1.png",
+    // {
+    //     id: "fd410",
+    //     name: "FD410",
+    //     label: "Wireless Terminal",
+    //     image: "/assets/product-1.png",
 
-        eyebrow: "Mobile payment solution",
+    //     eyebrow: "Mobile payment solution",
 
-        headline:
-            "Accept payments securely anywhere your business takes you!",
+    //     headline:
+    //         "Accept payments securely anywhere your business takes you!",
 
-        intro:
-            "The FD410 is a wireless, hand-held POS system with a full range of payment options.",
+    //     intro:
+    //         "The FD410 is a wireless, hand-held POS system with a full range of payment options.",
 
-        description:
-            "The FD410 terminal from First Data is a wireless, hand-held point-of-sale device that merchants can easily use remotely while providing customers with a complete range of payment options. Its touch-screen interface makes it simple to learn and operate, while wireless connectivity allows your business to accept payments from almost anywhere.",
+    //     description:
+    //         "The FD410 terminal from First Data is a wireless, hand-held point-of-sale device that merchants can easily use remotely while providing customers with a complete range of payment options. Its touch-screen interface makes it simple to learn and operate, while wireless connectivity allows your business to accept payments from almost anywhere.",
 
-        secondaryDescription:
-            "Process credit cards, debit cards, gift cards, personal paper checks, and EBT through one dependable terminal. Its store-and-forward capability also helps preserve card-present rates when a wireless signal is temporarily unavailable.",
+    //     secondaryDescription:
+    //         "Process credit cards, debit cards, gift cards, personal paper checks, and EBT through one dependable terminal. Its store-and-forward capability also helps preserve card-present rates when a wireless signal is temporarily unavailable.",
 
-        howItWorksTitle:
-            "Accept payments securely while your business is on the move.",
+    //     howItWorksTitle:
+    //         "Accept payments securely while your business is on the move.",
 
-        howItWorksDescription:
-            "The FD410 terminal gives mobile businesses a lightweight and flexible way to process transactions from almost any location.",
+    //     howItWorksDescription:
+    //         "The FD410 terminal gives mobile businesses a lightweight and flexible way to process transactions from almost any location.",
 
-        features: [
-            {
-                title: "True mobility",
-                description:
-                    "Lightweight and ergonomically shaped for easy use wherever your business operates.",
-                icon: Smartphone,
-            },
-            {
-                title: "Wireless connectivity",
-                description:
-                    "Uses 3G technology over AT&T's GPRS network for fast data transmission and wider coverage.",
-                icon: Wifi,
-            },
-            {
-                title: "Multiple payment types",
-                description:
-                    "Accept credit, debit, gift cards, personal checks, and EBT from a single terminal.",
-                icon: CreditCard,
-            },
-            {
-                title: "Store and forward",
-                description:
-                    "Continue accepting transactions without a signal and process them when connectivity returns.",
-                icon: Radio,
-            },
-        ],
+    //     features: [
+    //         {
+    //             title: "True mobility",
+    //             description:
+    //                 "Lightweight and ergonomically shaped for easy use wherever your business operates.",
+    //             icon: Smartphone,
+    //         },
+    //         {
+    //             title: "Wireless connectivity",
+    //             description:
+    //                 "Uses 3G technology over AT&T's GPRS network for fast data transmission and wider coverage.",
+    //             icon: Wifi,
+    //         },
+    //         {
+    //             title: "Multiple payment types",
+    //             description:
+    //                 "Accept credit, debit, gift cards, personal checks, and EBT from a single terminal.",
+    //             icon: CreditCard,
+    //         },
+    //         {
+    //             title: "Store and forward",
+    //             description:
+    //                 "Continue accepting transactions without a signal and process them when connectivity returns.",
+    //             icon: Radio,
+    //         },
+    //     ],
 
-        paymentMethods: [
-            "Major credit cards",
-            "Debit cards",
-            "Gift cards",
-            "Paper checks",
-            "EBT",
-        ],
+    //     paymentMethods: [
+    //         "Major credit cards",
+    //         "Debit cards",
+    //         "Gift cards",
+    //         "Paper checks",
+    //         "EBT",
+    //     ],
 
-        industries: [
-            "Charity Functions & Events",
-            "Event Marketing & Trade Shows",
-            "Home Services & Delivery",
-        ],
-    },
+    //     industries: [
+    //         "Charity Functions & Events",
+    //         "Event Marketing & Trade Shows",
+    //         "Home Services & Delivery",
+    //     ],
+    // },
 
-    {
-        id: "fd200",
-        name: "FD200",
-        label: "Multifunction Terminal",
-        image: "/assets/product-2.png",
+    // {
+    //     id: "fd200",
+    //     name: "FD200",
+    //     label: "Multifunction Terminal",
+    //     image: "/assets/product-2.png",
 
-        eyebrow: "All-in-one payment solution",
+    //     eyebrow: "All-in-one payment solution",
 
-        headline:
-            "Process cards and checks from one powerful countertop terminal.",
+    //     headline:
+    //         "Process cards and checks from one powerful countertop terminal.",
 
-        intro:
-            "The FD200 virtually eliminates the need for several devices by handling multiple forms of payment through one compact terminal.",
+    //     intro:
+    //         "The FD200 virtually eliminates the need for several devices by handling multiple forms of payment through one compact terminal.",
 
-        description:
-            "Through optional Wi-Fi, Internet protocol, or dial-up communications, the FD200 processes transactions quickly and securely. Its advanced built-in check reader and imager supports TeleCheck Electronic Check Acceptance and lockbox services, including warranty and verification options.",
+    //     description:
+    //         "Through optional Wi-Fi, Internet protocol, or dial-up communications, the FD200 processes transactions quickly and securely. Its advanced built-in check reader and imager supports TeleCheck Electronic Check Acceptance and lockbox services, including warranty and verification options.",
 
-        secondaryDescription:
-            "These services can reduce the risks associated with paper checks, save time by removing the need to take checks to the bank, and help protect customer information by returning the original check at the point of sale.",
+    //     secondaryDescription:
+    //         "These services can reduce the risks associated with paper checks, save time by removing the need to take checks to the bank, and help protect customer information by returning the original check at the point of sale.",
 
-        howItWorksTitle:
-            "A complete card and check-processing solution in one device.",
+    //     howItWorksTitle:
+    //         "A complete card and check-processing solution in one device.",
 
-        howItWorksDescription:
-            "The FD200 accepts major credit cards through its magnetic-strip reader and processes paper checks through its built-in TeleCheck reader and imager.",
+    //     howItWorksDescription:
+    //         "The FD200 accepts major credit cards through its magnetic-strip reader and processes paper checks through its built-in TeleCheck reader and imager.",
 
-        features: [
-            {
-                title: "Built-in check reader",
-                description:
-                    "Processes paper checks through TeleCheck ECA, warranty, and verification services.",
-                icon: FileCheck2,
-            },
-            {
-                title: "Flexible connections",
-                description:
-                    "Processes transactions through optional Wi-Fi, IP, or dial-up connectivity.",
-                icon: Wifi,
-            },
-            {
-                title: "Dual printers",
-                description:
-                    "A thermal receipt printer and dedicated inkjet check printer help speed up transactions.",
-                icon: Printer,
-            },
-            {
-                title: "Fraud protection",
-                description:
-                    "Receipts display only the last four card digits to help protect against identity theft.",
-                icon: ShieldCheck,
-            },
-        ],
+    //     features: [
+    //         {
+    //             title: "Built-in check reader",
+    //             description:
+    //                 "Processes paper checks through TeleCheck ECA, warranty, and verification services.",
+    //             icon: FileCheck2,
+    //         },
+    //         {
+    //             title: "Flexible connections",
+    //             description:
+    //                 "Processes transactions through optional Wi-Fi, IP, or dial-up connectivity.",
+    //             icon: Wifi,
+    //         },
+    //         {
+    //             title: "Dual printers",
+    //             description:
+    //                 "A thermal receipt printer and dedicated inkjet check printer help speed up transactions.",
+    //             icon: Printer,
+    //         },
+    //         {
+    //             title: "Fraud protection",
+    //             description:
+    //                 "Receipts display only the last four card digits to help protect against identity theft.",
+    //             icon: ShieldCheck,
+    //         },
+    //     ],
 
-        paymentMethods: [
-            "Visa",
-            "American Express",
-            "Mastercard",
-            "Diners Club",
-            "Discover",
-            "JCB",
-            "Paper checks",
-        ],
+    //     paymentMethods: [
+    //         "Visa",
+    //         "American Express",
+    //         "Mastercard",
+    //         "Diners Club",
+    //         "Discover",
+    //         "JCB",
+    //         "Paper checks",
+    //     ],
 
-        additionalFeatures: [
-            "TeleCheck Electronic Check Acceptance",
-            "Check warranty and verification",
-            "Optional Dynamic Currency Conversion",
-            "Fast downloads",
-            "Thermal receipt printing",
-            "Inkjet check voiding",
-        ],
+    //     additionalFeatures: [
+    //         "TeleCheck Electronic Check Acceptance",
+    //         "Check warranty and verification",
+    //         "Optional Dynamic Currency Conversion",
+    //         "Fast downloads",
+    //         "Thermal receipt printing",
+    //         "Inkjet check voiding",
+    //     ],
 
-        industries: [
-            "Automotive",
-            "Restaurants",
-            "Retailers",
-        ],
-    },
+    //     industries: [
+    //         "Automotive",
+    //         "Restaurants",
+    //         "Retailers",
+    //     ],
+    // },
 
-    {
-        id: "fd130",
-        name: "FD130",
-        label: "EMV-Ready Terminal",
-        image: "/assets/product-3.png",
+    // {
+    //     id: "fd130",
+    //     name: "FD130",
+    //     label: "EMV-Ready Terminal",
+    //     image: "/assets/product-3.png",
 
-        eyebrow: "Secure countertop terminal",
+    //     eyebrow: "Secure countertop terminal",
 
-        headline:
-            "Get your business ready for secure EMV chip-enabled payments.",
+    //     headline:
+    //         "Get your business ready for secure EMV chip-enabled payments.",
 
-        intro:
-            "The FD130 is an affordable, compact terminal that combines performance, reliability, and ease of use.",
+    //     intro:
+    //         "The FD130 is an affordable, compact terminal that combines performance, reliability, and ease of use.",
 
-        description:
-            "The FD130 is ready for EMV technology, the modern payment security standard. It allows your business to accept transactions when a customer presents an EMV chip card, adding an important layer of protection to every payment.",
+    //     description:
+    //         "The FD130 is ready for EMV technology, the modern payment security standard. It allows your business to accept transactions when a customer presents an EMV chip card, adding an important layer of protection to every payment.",
 
-        secondaryDescription:
-            "Along with EMV chip cards, the FD130 supports major credit cards, contactless payments, debit cards, gift cards, personal paper checks, and EBT. Its compact design and simple on-screen prompts make installation and daily use straightforward.",
+    //     secondaryDescription:
+    //         "Along with EMV chip cards, the FD130 supports major credit cards, contactless payments, debit cards, gift cards, personal paper checks, and EBT. Its compact design and simple on-screen prompts make installation and daily use straightforward.",
 
-        howItWorksTitle:
-            "A compact terminal built for secure everyday payments.",
+    //     howItWorksTitle:
+    //         "A compact terminal built for secure everyday payments.",
 
-        howItWorksDescription:
-            "The FD130 safely accepts card payments while supporting modern EMV chip and contactless technology.",
+    //     howItWorksDescription:
+    //         "The FD130 safely accepts card payments while supporting modern EMV chip and contactless technology.",
 
-        features: [
-            {
-                title: "EMV chip ready",
-                description:
-                    "Accept EMV chip-enabled cards with an additional layer of transaction security.",
-                icon: ShieldCheck,
-            },
-            {
-                title: "Easy installation",
-                description:
-                    "Simple setup with clear, easy-to-follow prompts displayed directly on the terminal.",
-                icon: CheckCircle2,
-            },
-            {
-                title: "Contactless payments",
-                description:
-                    "Accept contactless cards, mobile wallets, gift cards, and major credit cards.",
-                icon: CreditCard,
-            },
-            {
-                title: "Optional add-ons",
-                description:
-                    "Add a check reader or PIN pad for debit, signature, and electronic check transactions.",
-                icon: Gauge,
-            },
-        ],
+    //     features: [
+    //         {
+    //             title: "EMV chip ready",
+    //             description:
+    //                 "Accept EMV chip-enabled cards with an additional layer of transaction security.",
+    //             icon: ShieldCheck,
+    //         },
+    //         {
+    //             title: "Easy installation",
+    //             description:
+    //                 "Simple setup with clear, easy-to-follow prompts displayed directly on the terminal.",
+    //             icon: CheckCircle2,
+    //         },
+    //         {
+    //             title: "Contactless payments",
+    //             description:
+    //                 "Accept contactless cards, mobile wallets, gift cards, and major credit cards.",
+    //             icon: CreditCard,
+    //         },
+    //         {
+    //             title: "Optional add-ons",
+    //             description:
+    //                 "Add a check reader or PIN pad for debit, signature, and electronic check transactions.",
+    //             icon: Gauge,
+    //         },
+    //     ],
 
-        paymentMethods: [
-            "EMV chip cards",
-            "Major credit cards",
-            "Contactless payments",
-            "Debit cards",
-            "Gift cards",
-            "Paper checks",
-            "EBT",
-        ],
+    //     paymentMethods: [
+    //         "EMV chip cards",
+    //         "Major credit cards",
+    //         "Contactless payments",
+    //         "Debit cards",
+    //         "Gift cards",
+    //         "Paper checks",
+    //         "EBT",
+    //     ],
 
-        additionalFeatures: [
-            "TeleCheck Electronic Check Acceptance",
-            "Optional PIN pad",
-            "Optional check reader",
-            "Optional Dynamic Currency Conversion",
-            "Compact countertop design",
-        ],
+    //     additionalFeatures: [
+    //         "TeleCheck Electronic Check Acceptance",
+    //         "Optional PIN pad",
+    //         "Optional check reader",
+    //         "Optional Dynamic Currency Conversion",
+    //         "Compact countertop design",
+    //     ],
 
-        industries: [
-            "Quick-Service Restaurants",
-            "Restaurants",
-            "Retailers",
-        ],
-    },
+    //     industries: [
+    //         "Quick-Service Restaurants",
+    //         "Restaurants",
+    //         "Retailers",
+    //     ],
+    // },
 
     {
         id: "fd-terminals",

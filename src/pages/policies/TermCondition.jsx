@@ -2,8 +2,8 @@ export default function TermCondition() {
     return (
         <section className="py-12 px-6 text-gray-800">
             {/* Hero */}
-            <div className="py-8 px-6">
-                <div className="max-w-5xl mx-auto text-center">
+            <div className="">
+                <div className="max-w-5xl mx-auto md:text-center">
                     <h1 className="primary-heading mb-4">
                         Terms and Conditions
                     </h1>
@@ -16,7 +16,7 @@ export default function TermCondition() {
             </div>
 
             {/* Content */}
-            <div className="max-w-5xl mx-auto px-6 py-6 md:py-16 space-y-8">
+            <div className="max-w-5xl mx-auto py-6 md:py-16 space-y-8">
                 <div>
                     <p className="text-sm text-gray-500 mb-6">
                         Last Updated: May 14, 2026
@@ -199,9 +199,22 @@ export default function TermCondition() {
                     <h2 className="text-2xl font-bold">
                         16. Contact Information
                     </h2>
-
                     <p className="leading-8 text-gray-700">
-                        For questions about these Terms of Service, contact us at: Email: info@.com · Phone: (305) 000-0000 — Available Monday–Friday 9am–6pm EST ·   is proudly owned and operated in the United States.
+                        If you have any questions about this Term and Conditions, how we collect, use, or protect your personal information, or if you would like to exercise your privacy rights, please contact our team. We are committed to addressing your inquiries promptly and ensuring your information is handled responsibly. You can reach us by email at{" "}
+                        <a
+                            href="mailto:Operations@merchantbusinesses.com"
+                            className="font-medium font-sans text-(--primary-color) transition-colors hover:underline"
+                        >
+                            Operations@merchantbusinesses.com
+                        </a>
+                        {" "}or by phone at{" "}
+                        <a
+                            href="tel:+13468631648"
+                            className="font-medium font-sans text-(--primary-color) transition-colors hover:underline"
+                        >
+                            +1 346 863 1648
+                        </a>
+                        . Merchant Businesses is proudly owned and operated in the United States and is dedicated to maintaining the privacy, security, and trust of our customers.
                     </p>
                 </div>
 
